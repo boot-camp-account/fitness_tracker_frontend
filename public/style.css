@@ -151,3 +151,7 @@ input {
 #login input {
   width: 250px;
 }
+
+.myPosts {
+  background-color: lightgoldenrodyellow;
+}

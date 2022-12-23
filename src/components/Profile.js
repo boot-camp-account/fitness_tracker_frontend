@@ -1,30 +1,28 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const baseURL = 'https://strangers-things.herokuapp.com/api/2209-FTB-MT-WEB-PT'
 
 
 const Profile = ({username, password, token}) => {
+    const [messages, setMessages] = useState([]);
+    const [posts, setPosts] = useState([]);
     
-    const getUserData = async () => {
-        
+    useEffect(() => {
         fetch(`${baseURL}/users/me`, {
-            method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`
             },
-            body: JSON.stringify({
-                user: {
-                    username: `${username}`,
-                    password: `${password}`
-                }
-            })
-        }).then (response => response.json())
-          .then (result => {
-            console.log(result);
-            // console.log(result.success);
-          })            
-}
+        })
+            .then (response => response.json())
+            .then (
+                (result) => {
+                    setPosts(result.data.posts);
+                    setMessages(result.data.messages);
+                    console.log(result);
+                    console.log(posts);
+              })             
+}, [])
 
 return (
        
@@ -33,11 +31,21 @@ return (
             {
                 token ? (
                     <div>
-                        <h1>Welcome {`${username}`}!</h1>
+                        <h1>Welcome, {`${username}`}!</h1>
                         <br></br>
         
-                        <h2>You have Messages!</h2>
+                        <h2>You have {`${posts.length}`} current Posts.</h2>
+
+                        <h2>You have received {`${messages.length}`} Messages.</h2>
+                        <br></br>
+
+                        <div>
+                            <h3>Messages To Me:</h3>
+                            <p>From User: {`${messages.username}`}</p>
+                            <p>{`${messages.content}`}</p>
                         </div>
+
+                    </div>
                     ) : (
                          <p>Sorry, you've reached a restricted page. Please login to view your profile</p>
                         )

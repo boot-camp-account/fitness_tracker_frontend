@@ -18,14 +18,16 @@ const [willDeliver, setWillDeliver] = useState('');
                 },
                    body: JSON.stringify({
                     post: {
-                    title: title,
-                    description: description,
-                    price: price,
-                    willDeliver: true
+                        title: title,
+                        description: description,
+                        price: price,
+                        location: location,
+                        willDeliver: true
                     },
-                    }),
-                });
+                }),
+            });
                 alert("You have successfully submitted a new post!");
+                document.getElementById("new-post-form").reset();
                 const result = await response.json();
             } catch (error) {
                 console.error(error);
@@ -37,7 +39,7 @@ const [willDeliver, setWillDeliver] = useState('');
             <div className='register-form bold'>
 
                 <h1>Add A New Post</h1>
-                <form onSubmit={(event) => {
+                <form id="new-post-form" onSubmit={(event) => {
                 event.preventDefault();
                 createNewPost();
                 }}>

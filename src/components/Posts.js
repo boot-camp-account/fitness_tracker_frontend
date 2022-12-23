@@ -15,7 +15,7 @@ const Posts = ({token}) => {
                 .then(response => response.json())
                 .then(
                     (result) => {
-                        setPosts(result.data.posts)
+                        setPosts(result.data.posts);
                         console.log(result);
                     }
                 )
@@ -43,7 +43,7 @@ const Posts = ({token}) => {
             {
                 posts && posts.map((post) => {
                     return (
-                        <div key={post._id} className='post-div'>
+                        <div key={post._id} className={post.isAuthor ? 'post-div myPosts' : 'post-div'}>
                             <h3>{post.title}</h3>
                             <p className='bold'>Description: <span className='normal-font'>{post.description}</span></p>
                             <p className='bold'>Seller: <span className='normal-font'>{post.author.username}</span></p>
