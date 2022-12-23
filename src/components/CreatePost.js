@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const CreatePost = ({token}) => {
 const [title, setTitle] = useState('');
@@ -7,6 +8,7 @@ const [description, setDescription] = useState('');
 const [location, setLocation] = useState('');
 const [price, setPrice] = useState('');
 const [willDeliver, setWillDeliver] = useState('');
+const navigate = useNavigate();
 
     const createNewPost = async () => {
         try {
@@ -28,6 +30,7 @@ const [willDeliver, setWillDeliver] = useState('');
             });
                 alert("You have successfully submitted a new post!");
                 document.getElementById("new-post-form").reset();
+                navigate('/posts');
                 const result = await response.json();
             } catch (error) {
                 console.error(error);
