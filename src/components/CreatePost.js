@@ -27,8 +27,6 @@ const [willDeliver, setWillDeliver] = useState('');
                 });
                 alert("You have successfully submitted a new post!");
                 const result = await response.json();
-                // console.log(response);
-                // console.log(result);
             } catch (error) {
                 console.error(error);
             }
@@ -37,41 +35,32 @@ const [willDeliver, setWillDeliver] = useState('');
     return (
         <div id='login'>
             <div className='register-form bold'>
+
+                <h1>Add A New Post</h1>
                 <form onSubmit={(event) => {
                 event.preventDefault();
                 createNewPost();
                 }}>
-                <label>Please enter the Title of your post:</label>
                 <br></br>
-                <input
-                type='text'
-                onChange={(event) => setTitle(event.target.value)} />
+                <input type="text" placeholder="Title of New Post" onChange={(event) => setTitle(event.target.value)} />
                 <br></br>
 
-                <label>Please enter the Description of your post: </label>
                 <br></br>
-                <input
-                type='text'
-                onChange={(event) => setDescription(event.target.value)} />
+                <input type='text' placeholder="Description for New Post" onChange={(event) => setDescription(event.target.value)} />
                 <br></br>
 
-                <label>Please enter the Price of your post:</label>
                 <br></br>
-                <input
-                type='text'
-                onChange={(event) => setPrice(event.target.value)} />
+                <input type='text' placeholder="Price for New Post" onChange={(event) => setPrice(event.target.value)} />
                 <br></br>
 
-                <label>Please enter the Location of your post:</label>
                 <br></br>
-                <input
-                type='text'
-                onChange={(event) => setLocation(event.target.value)} />
+                <input type='text' placeholder="Where is this Item located" onChange={(event) => setLocation(event.target.value)} />
+                <br></br>
                 <br></br>
 
-                <input type="checkbox" 
-                onChange={(event) => setWillDeliver(event.target.value)} />
-                <label htmlFor="willDeliver">Will Deliver?</label>
+                <input type="checkbox" onChange={(event) => setWillDeliver(event.target.value)} />
+                <label htmlFor="willDeliver">Are You Willing To Deliver?</label>
+                <br></br>
                 <br></br>
                 <button type='submit'>Submit New Post</button>
                 </form>

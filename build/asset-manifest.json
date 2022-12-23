@@ -1,0 +1,11 @@
+{
+  "files": {
+    "main.js": "/static/js/main.29900089.js",
+    "static/media/Stranger_Things_logo.png": "/static/media/Stranger_Things_logo.87e40cd1ea2c29817bec.png",
+    "index.html": "/index.html",
+    "main.29900089.js.map": "/static/js/main.29900089.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.29900089.js"
+  ]
+}

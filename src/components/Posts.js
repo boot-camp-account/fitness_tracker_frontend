@@ -6,40 +6,23 @@ const Posts = ({token}) => {
     const navigate = useNavigate();
 
     useEffect(() => {
-            fetch("https://strangers-things.herokuapp.com/api/2209-FTB-MT-WEB-PT/posts")
+            fetch("https://strangers-things.herokuapp.com/api/2209-FTB-MT-WEB-PT/posts", {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}` 
+                },
+            })
                 .then(response => response.json())
                 .then(
                     (result) => {
                         setPosts(result.data.posts)
+                        console.log(result);
                     }
                 )
     }, [token])
 
     const navigateToNewPostForm = async () => {
-        navigate('/posts/addpost');
-            // try {
-            //     const response = await fetch('https://strangers-things.herokuapp.com/api/2209-FTB-MT-WEB-PT/posts', {
-            //         method: "POST",
-            //         headers: {
-            //             'Content-Type': 'application/json',
-            //             'Authorization': `Bearer ${token}`
-            //         },
-            //         body: JSON.stringify({
-            //             post: {
-            //             title: "Test Title",
-            //             description: "Test Description",
-            //             price: "Test Price",
-            //             willDeliver: true
-            //             },
-            //         }),
-            //     });
-            //     const result = await response.json();
-            //     console.log(response);
-            //     console.log(result);
-            // } catch (error) {
-            //     console.error(error);
-            // }
-           
+        navigate('/posts/addpost');           
         };
 
     return (
