@@ -22,8 +22,6 @@ const Login = ({username, password, setTokenFromParent, setUsernameFromParent, s
             })
         }).then (response => response.json())
           .then (result => {
-            console.log(result);
-            console.log(result.success);
 
             if (result.success) {
                 setTokenFromParent(result.data.token);

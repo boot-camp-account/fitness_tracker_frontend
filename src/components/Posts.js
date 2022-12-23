@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, NavLink } from 'react-router-dom';
-import { createPost } from '../api';
 
 const Posts = ({token}) => {
     const [posts, setPosts] = useState([]);
@@ -16,7 +15,7 @@ const Posts = ({token}) => {
                 )
     }, [token])
 
-    const createPost = async () => {
+    const navigateToNewPostForm = async () => {
         navigate('/posts/addpost');
             // try {
             //     const response = await fetch('https://strangers-things.herokuapp.com/api/2209-FTB-MT-WEB-PT/posts', {
@@ -50,7 +49,7 @@ const Posts = ({token}) => {
                 token ? (
                     <div>
                         <h1>All Posts:</h1>
-                            <button onClick={createPost}>Create New Post</button>
+                            <button onClick={navigateToNewPostForm}>Create New Post</button>
                     </div>
                 ) : (
                     <h1>All Posts:</h1>

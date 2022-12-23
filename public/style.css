@@ -147,3 +147,7 @@ input {
 #home input {
   width: 245px;
 }
+
+#login input {
+  width: 250px;
+}
