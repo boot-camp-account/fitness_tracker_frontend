@@ -32,7 +32,8 @@ const Posts = ({token}) => {
                 token ? (
                     <div>
                         <h1>All Posts:</h1>
-                            <button onClick={navigateToNewPostForm}>Create New Post</button>
+                        <button onClick={navigateToNewPostForm}>Create New Post</button>
+                        {/* <button>Send Message</button> */}
                     </div>
                 ) : (
                     <h1>All Posts:</h1>
@@ -49,8 +50,9 @@ const Posts = ({token}) => {
                             <p className='bold'>Seller: <span className='normal-font'>{post.author.username}</span></p>
                             <p className='bold'>Price: <span className='normal-font'>{post.price}</span></p>
                             <p className='bold'>Location: <span className='normal-font'>{post.location}</span></p>
-                            {post.isAuthor ? <button>Edit</button> :null}
+                            {post.isAuthor ? <button>Edit</button> : null}
                             {post.isAuthor ? <button>Delete</button> : null}
+                            {token && !post.isAuthor ? <button>Send Message</button> : null}
                         </div>
                     )
                 })
