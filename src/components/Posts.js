@@ -1,28 +1,63 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate, NavLink } from 'react-router-dom';
+import { createPost } from '../api';
 
-const Posts = () => {
-    const [isLoaded, setIsLoaded] = useState(false);
+const Posts = ({token}) => {
     const [posts, setPosts] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
             fetch("https://strangers-things.herokuapp.com/api/2209-FTB-MT-WEB-PT/posts")
                 .then(response => response.json())
                 .then(
                     (result) => {
-                        setIsLoaded(true)
-
-                        // console.log(result);
-                    
                         setPosts(result.data.posts)
-                        // console.log(result.data.posts)
                     }
                 )
-    }, [])
+    }, [token])
+
+    const createPost = async () => {
+        navigate('/posts/addpost');
+            // try {
+            //     const response = await fetch('https://strangers-things.herokuapp.com/api/2209-FTB-MT-WEB-PT/posts', {
+            //         method: "POST",
+            //         headers: {
+            //             'Content-Type': 'application/json',
+            //             'Authorization': `Bearer ${token}`
+            //         },
+            //         body: JSON.stringify({
+            //             post: {
+            //             title: "Test Title",
+            //             description: "Test Description",
+            //             price: "Test Price",
+            //             willDeliver: true
+            //             },
+            //         }),
+            //     });
+            //     const result = await response.json();
+            //     console.log(response);
+            //     console.log(result);
+            // } catch (error) {
+            //     console.error(error);
+            // }
+           
+        };
 
     return (
         <div id="posts">
-            <h1>All Posts:</h1> <br></br>
-        
+            
+            {
+                token ? (
+                    <div>
+                        <h1>All Posts:</h1>
+                            <button onClick={createPost}>Create New Post</button>
+                    </div>
+                ) : (
+                    <h1>All Posts:</h1>
+                )
+            }
+            
+           
             {
                 posts && posts.map((post) => {
                     return (
@@ -32,6 +67,8 @@ const Posts = () => {
                             <p className='bold'>Seller: <span className='normal-font'>{post.author.username}</span></p>
                             <p className='bold'>Price: <span className='normal-font'>{post.price}</span></p>
                             <p className='bold'>Location: <span className='normal-font'>{post.location}</span></p>
+                            {post.isAuthor ? <button>Edit</button> :null}
+                            {post.isAuthor ? <button>Delete</button> : null}
                         </div>
                     )
                 })
