@@ -27,7 +27,8 @@ ul {
   }
 `
 
-const Navbar = ({token}) => {
+const Navbar = ({token, logout}) => {
+
     return (
         <header>
             <NavUnlisted>
@@ -42,11 +43,12 @@ const Navbar = ({token}) => {
                 </NavLink>
                 {
                     token ? (
-                        <NavLink to='/'>
+                        <NavLink to="/home" onClick={() => {
+                            logout();}}>
                             <li>Logout</li>                      
                         </NavLink>
                     ) : (
-                        <NavLink to='login'>
+                        <NavLink to="login">
                             <li>Log In</li>
                         </NavLink>
                     )

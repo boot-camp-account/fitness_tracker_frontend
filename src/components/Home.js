@@ -1,32 +1,29 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
-const Home = () => {
+const Home = ({username, token}) => {
     return (
         
         <div id="home">
-            
-            <h1>Welcome to Stranger's Things!</h1>
-
-            <h2>A fun place for Strangers to buy and sell things</h2>
-
-                {/* <div className='login-div'>
-                    <form className="login">
-                        <h2>Log in</h2>
+            {
+                token ? (
+                    <div>
+                        <h1>Welcome to Stranger's Things!</h1>
+                        <h2>A fun place for Strangers to buy and sell things</h2>
                         <br></br>
-                        <input type="text" placeholder="Username*"/>
+                        <h3>You are currently signed in as:  {`${username}`}</h3>
                         <br></br>
-                        <br></br>
-                         <input type="password" placeholder="Password*" />
-                         <br></br>
-                        <br></br>
-                        <button>Log In</button>
-                        <br></br>
-                        <br></br>
-                        <p>Not a Member? <Link to="/register">Register</Link></p>
-                    </form>
-                </div> */}
-
+                        <img src={require('./Stranger_Things_logo.png')}></img>
+                    </div>) 
+                    
+                    : (
+                        <div>
+                            <h1>Welcome to Stranger's Things!</h1>
+                            <h2>A fun place for Strangers to buy and sell things</h2>
+                            <br></br>
+                            <img src={require('./Stranger_Things_logo.png')}></img>
+                        </div>
+                        )
+            }
         </div>
     )
 }

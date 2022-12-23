@@ -23,8 +23,6 @@ const Register = ({username, password, setTokenFromParent, setUsernameFromParent
                 console.log(result.success);
 
                 if (result.success) {
-                    setTokenFromParent(result.data.token);
-                    window.localStorage.setItem('token', result.data.token);
                     alert("You have successfully registered! Please login using your registration credentials")
                 } else if (result.error.message) {
                     alert("This account has already been registered. Please login or try a different username")

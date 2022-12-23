@@ -1,5 +1,5 @@
 {
-  "name": "art_collector_react",
+  "name": "strangers_things",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -19,6 +19,7 @@
     "react-dom": "^16.13.1",
     "react-router-dom": "^6.4.5",
     "react-scripts": "^5.0.1",
+    "react-toastify": "^9.1.1",
     "styled-components": "^5.3.6",
     "tailwindcss": "^1.9.6"
   },
