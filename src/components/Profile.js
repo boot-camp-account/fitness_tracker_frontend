@@ -6,6 +6,7 @@ const baseURL = 'https://strangers-things.herokuapp.com/api/2209-FTB-MT-WEB-PT'
 const Profile = ({username, password, token}) => {
     const [messages, setMessages] = useState([]);
     const [posts, setPosts] = useState([]);
+    const [activePosts, setActivePosts] = useState('');
     
     useEffect(() => {
         fetch(`${baseURL}/users/me`, {
@@ -19,8 +20,12 @@ const Profile = ({username, password, token}) => {
                 (result) => {
                     setPosts(result.data.posts);
                     setMessages(result.data.messages);
-                    console.log(result);
-                    console.log(posts);
+                    posts && posts.map((post) => {
+                        setActivePosts(post.active);
+                    })
+                    // console.log(posts)
+                    // console.log(result.data.posts);
+                    // console.log(result);
               })             
 }, [])
 
@@ -34,7 +39,10 @@ return (
                         <h1>Welcome, {`${username}`}!</h1>
                         <br></br>
         
-                        <h2>You have {`${posts.length}`} current Posts.</h2>
+                        <h2>You have {`${posts.length}`} total Post(s).</h2>
+                        <h2>You have {activePosts} active Post(s).</h2>
+                        <h2>You have inactive Post(s).</h2>
+                        <br></br>
 
                         <h2>You have received {`${messages.length}`} Messages.</h2>
                         <br></br>

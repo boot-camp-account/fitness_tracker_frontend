@@ -19,8 +19,6 @@ const Register = ({username, password, setTokenFromParent, setUsernameFromParent
                 })
             }).then (response => response.json())
               .then (result => {
-                console.log(result);
-                console.log(result.success);
 
                 if (result.success) {
                     alert("You have successfully registered! Please login using your registration credentials")
