@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Routes, useNavigate } from 'react-router-dom';
-import { Navbar, Home, Posts, Profile, Register, Login, CreatePost, Activities} from './components';
+import { Navbar, Home, Routines, Profile, Register, Login, CreatePost, Activities} from './components';
 
 const App = () => {
   const [token, setToken] = useState('');
@@ -20,8 +20,8 @@ const App = () => {
         <Navbar logout={logout} token={token}/>
           <Routes>
             <Route path='/home' element={<Home username={username} token={token}/>}/>
-            <Route path='/posts' element={<Posts token={token} navigate={navigate}/>}/>
             <Route path='/activities' element={<Activities token={token} navigate={navigate}/>}/>
+            <Route path='/routines' element={<Routines token={token} navigate={navigate}/>}/>
             <Route path='/posts/addpost' element={<CreatePost username={username} password={password} token={token} navigate={navigate}/>}/>
             <Route path='/profile' element={<Profile username={username} password={password} token={token}/>}/>
             <Route path='/register' element={<Register username={username} password={password} setUsernameFromParent={setUsername} setPasswordFromParent={setPassword} setTokenFromParent={setToken}/>}/>

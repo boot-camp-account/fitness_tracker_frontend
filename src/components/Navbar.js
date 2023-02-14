@@ -23,7 +23,7 @@ ul {
   }
   
   li:hover {
-    background-color: #04AA6D;
+    background-color: #4977fb;
   }
 `
 
@@ -35,11 +35,11 @@ const Navbar = ({token, logout}) => {
                 <NavLink to="/home">
                     <li>Home</li>
                 </NavLink>
-                <NavLink to="/posts">
-                    <li>Routines</li>
-                </NavLink>
                 <NavLink to="/activities">
                     <li>Activities</li>
+                </NavLink>
+                <NavLink to="/routines">
+                    <li>Routines</li>
                 </NavLink>
                 <NavLink to="/profile">
                     <li>My Routines</li>

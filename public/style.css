@@ -26,7 +26,7 @@ li a {
 }
 
 li a:hover {
-  background-color: #04AA6D;
+  background-color: #4977fb;
 }
 
 body {
@@ -107,7 +107,7 @@ button {
 }
 
 button:hover {
-  background-color: #04AA6D;
+  background-color: #4977fb;
   color: white;
 }
 

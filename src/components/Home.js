@@ -12,7 +12,7 @@ const Home = ({username, token}) => {
                         <br></br>
                         <h3>You are currently signed in as:  {`${username}`}</h3>
                         <br></br>
-                        <img src={require('./Stranger_Things_logo.png')}></img>
+                        <img src={require('./fitness_app_photo.jpeg')}></img>
                     </div>) 
                     
                     : (
@@ -20,7 +20,7 @@ const Home = ({username, token}) => {
                             <h1>Welcome to Fitness Tracker!</h1>
                             <h2>A fun place for tracking your fitness activities</h2>
                             <br></br>
-                            <img src={require('./Stranger_Things_logo.png')}></img>
+                            <img src={require('./fitness_app_photo.jpeg')}></img>
                         </div>
                         )
             }
