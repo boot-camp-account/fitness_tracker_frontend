@@ -36,10 +36,13 @@ const Navbar = ({token, logout}) => {
                     <li>Home</li>
                 </NavLink>
                 <NavLink to="/posts">
-                    <li>Posts</li>
+                    <li>Routines</li>
+                </NavLink>
+                <NavLink to="/activities">
+                    <li>Activities</li>
                 </NavLink>
                 <NavLink to="/profile">
-                    <li>Profile</li>
+                    <li>My Routines</li>
                 </NavLink>
                 {
                     token ? (

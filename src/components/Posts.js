@@ -7,10 +7,11 @@ const Posts = ({token}) => {
     const navigate = useNavigate();
 
     useEffect(() => {
-            fetch("https://strangers-things.herokuapp.com/api/2209-FTB-MT-WEB-PT/posts", {
+            fetch("https://fitnesstrac-kr.herokuapp.com/api/activities", {
+                method: "GET",
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}` 
+                    // 'Authorization': `Bearer ${token}` 
                 },
             })
                 .then(response => response.json())

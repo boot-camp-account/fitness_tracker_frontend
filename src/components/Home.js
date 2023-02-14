@@ -7,8 +7,8 @@ const Home = ({username, token}) => {
             {
                 token ? (
                     <div>
-                        <h1>Welcome to Stranger's Things!</h1>
-                        <h2>A fun place for Strangers to buy and sell things</h2>
+                        <h1>Welcome to Fitness Tracker!</h1>
+                        <h2>A fun place for tracking your fitness activities</h2>
                         <br></br>
                         <h3>You are currently signed in as:  {`${username}`}</h3>
                         <br></br>
@@ -17,8 +17,8 @@ const Home = ({username, token}) => {
                     
                     : (
                         <div>
-                            <h1>Welcome to Stranger's Things!</h1>
-                            <h2>A fun place for Strangers to buy and sell things</h2>
+                            <h1>Welcome to Fitness Tracker!</h1>
+                            <h2>A fun place for tracking your fitness activities</h2>
                             <br></br>
                             <img src={require('./Stranger_Things_logo.png')}></img>
                         </div>
