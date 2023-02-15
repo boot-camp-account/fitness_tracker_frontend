@@ -10,8 +10,6 @@ const Activities = ({token}) => {
         fetch('https://fitnesstrac-kr.herokuapp.com/api/activities')
         .then((response) => response.json())
         .then((result) => {
-            console.log(result);
-            console.log(result[0])
             setActivities(result)
         });
     }, []);    
@@ -63,11 +61,11 @@ const Activities = ({token}) => {
             {
                 token ? (
                     <div>
-                        <h1>All Activities:</h1>
+                        <h1>Activities:</h1>
                         <button onClick={navigateToNewPostForm}>Create New Post</button>
                     </div>
                 ) : (
-                    <h1>All Activities:</h1>
+                    <h1>Activities:</h1>
                 )
             }
             

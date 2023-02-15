@@ -23,8 +23,8 @@ const Routines = () => {
   }, []);
 
   return(
-    <div >
-      <h2 >Routines</h2>
+    <div id="posts">
+      <h1>Routines:</h1>
 
       <div>
         {routines.length ? (
@@ -32,10 +32,10 @@ const Routines = () => {
             const { id, name, isPublic, goal, creatorName, activities} = routine;
             if(isPublic){
               return(
-                <div>
+                <div className="post-div">
                   <div>
-                    <h1>Routine</h1>
-                  <h3>Name: {name}</h3>
+                    <h2>Routine</h2>
+                  <h3>Routine Name: {name}</h3>
                   <p>Goal: {goal}</p>
                   <p>Creator: {creatorName}</p>
                   </div>
