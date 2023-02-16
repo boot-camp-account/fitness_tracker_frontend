@@ -28,7 +28,7 @@ const navigate = useNavigate();
                     },
                 }),
             });
-                alert("You have successfully submitted a new post!");
+                alert("You have successfully created a new activity!");
                 document.getElementById("new-post-form").reset();
                 navigate('/activities');
                 const result = await response.json();
@@ -41,33 +41,33 @@ const navigate = useNavigate();
         <div id='login'>
             <div className='register-form bold'>
 
-                <h1>Add A New Activity</h1>
+                <h1>Create A New Activity</h1>
                 <form id="new-post-form" onSubmit={(event) => {
                 event.preventDefault();
                 createNewPost();
                 }}>
                 <br></br>
-                <input type="text" placeholder="Title of New Post" onChange={(event) => setTitle(event.target.value)} />
+                <input type="text" placeholder="Title of New Activity" onChange={(event) => setTitle(event.target.value)} />
                 <br></br>
 
                 <br></br>
-                <input type='text' placeholder="Description for New Post" onChange={(event) => setDescription(event.target.value)} />
+                <input type='text' placeholder="Description for New Activity" onChange={(event) => setDescription(event.target.value)} />
                 <br></br>
 
-                <br></br>
+                {/* <br></br>
                 <input type='text' placeholder="Price for New Post" onChange={(event) => setPrice(event.target.value)} />
-                <br></br>
+                <br></br> */}
 
-                <br></br>
+                {/* <br></br>
                 <input type='text' placeholder="Where is this Item located" onChange={(event) => setLocation(event.target.value)} />
                 <br></br>
-                <br></br>
+                <br></br> */}
 
-                <input type="checkbox" onChange={(event) => setWillDeliver(event.target.value)} />
+                {/* <input type="checkbox" onChange={(event) => setWillDeliver(event.target.value)} />
                 <label htmlFor="willDeliver">Are You Willing To Deliver?</label>
                 <br></br>
-                <br></br>
-                <button type='submit'>Submit New Post</button>
+                <br></br> */}
+                <button type='submit'>Submit New Activity</button>
                 </form>
             </div>
         </div>
