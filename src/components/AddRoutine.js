@@ -17,25 +17,27 @@ const AddRoutine = ({ myRoutines, setMyRoutines }) => {
     }
   };
   return (
-    <div>
+    <div className="post-div">
       <form onSubmit={handleSubmit}>
-        <h3> Create a Routine.</h3>
-        <label>Routine Name</label>
+        <h3>Create a New Routine:</h3>
+        <label><b>Routine Name:</b></label>
         <input
           type='text'
           id='name'
           required
           placeholder='routine name'
         ></input>
-        <label>goal</label>
+        <br></br>
+        <label><b>Routine Goal:</b></label>
         <input
           type='text'
           id='goal'
           required
           placeholder='routine goal'
         ></input>
+        <br></br>
         <button type='submit'>
-          ENTER
+          Create Routine
         </button>
       </form>
     </div>

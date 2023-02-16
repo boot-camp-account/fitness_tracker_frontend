@@ -11,7 +11,7 @@ const DeleteRoutine = () => {
       }
     return ( 
         <div>
-            <button onClick={handleDelete} type="button"> delete </button>
+            <button onClick={handleDelete} type="button">Delete Routine</button>
         </div>
      );
 }

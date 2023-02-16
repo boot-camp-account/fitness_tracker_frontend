@@ -61,11 +61,11 @@ const Activities = ({token}) => {
             {
                 token ? (
                     <div>
-                        <h1>Activities:</h1>
+                        <h1>All Active Activities:</h1>
                         <button onClick={navigateToNewPostForm}>Create New Activity</button>
                     </div>
                 ) : (
-                    <h1>Activities:</h1>
+                    <h1>All Active Activities:</h1>
                 )
             }
             

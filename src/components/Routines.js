@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 
 import { getRoutines } from "../api";
 
-
-
 const Routines = () => {
   const [routines, setRoutines] = useState([]);
 
@@ -24,7 +22,7 @@ const Routines = () => {
 
   return(
     <div id="posts">
-      <h1>Routines:</h1>
+      <h1>All Active Routines:</h1>
 
       <div>
         {routines.length ? (
@@ -35,9 +33,9 @@ const Routines = () => {
                 <div className="post-div">
                   <div>
                     <h2>Routine</h2>
-                  <h3>Routine Name: {name}</h3>
-                  <p>Goal: {goal}</p>
-                  <p>Creator: {creatorName}</p>
+                    <h3>Routine Name: {name}</h3>
+                    <p>Goal: {goal}</p>
+                    <p>Creator: {creatorName}</p>
                   </div>
 
                   <div>

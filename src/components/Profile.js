@@ -41,28 +41,33 @@ const Profile = () => {
 
   
   return (
-    <div>
+    <div id="posts">
       {info && info.username ? 
       
       <div>
-      <h2>Hello {info.username}.</h2> 
-      <h3>MY ROUTINES</h3>
+      <h2>Hello, {info.username}.</h2> 
+      <br></br>
 
-      <AddRoutine myRoutines={myRoutines} setMyRoutines={setMyRoutines} />
+      <div>
+        <AddRoutine myRoutines={myRoutines} setMyRoutines={setMyRoutines} />
+        <h3>MY ACTIVE ROUTINES:</h3>
       {myRoutines && myRoutines.length
         ? myRoutines.map((routine, index) => {
             return (
-              <div key={`profile:${routine.id} ${index}`}>
-                <p>Routine: {routine.name}</p>
-                <p>Goal: {routine.goal}</p>
-                <DeleteRoutine  routineId={routine.id} setMyRoutines={setMyRoutines}/>
+                <div className="post-div" key={`profile:${routine.id} ${index}`}>
+                  <p><b>Routine:</b> {routine.name}</p>
+                  <p><b>Goal:</b> {routine.goal}</p>
+                  <DeleteRoutine  routineId={routine.id} setMyRoutines={setMyRoutines}/>
               </div>
             );
           })
         : null}
+        </div>
       </div>
       
-      : <p>Sorry, you've reached a restricted page. Please login to see your Routines.</p>}
+      : <div className="login-div">
+          <p>Sorry, you've reached a restricted page. Please login to see your Routines.</p>
+        </div>}
       
         
     </div>
