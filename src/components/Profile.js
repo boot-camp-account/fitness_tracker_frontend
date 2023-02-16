@@ -42,7 +42,10 @@ const Profile = () => {
   
   return (
     <div>
-      {info && info.username ? <h2 >Hello {info.username}.</h2> : null}
+      {info && info.username ? 
+      
+      <div>
+      <h2>Hello {info.username}.</h2> 
       <h3>MY ROUTINES</h3>
 
       <AddRoutine myRoutines={myRoutines} setMyRoutines={setMyRoutines} />
@@ -57,6 +60,10 @@ const Profile = () => {
             );
           })
         : null}
+      </div>
+      
+      : <p>Sorry, you've reached a restricted page. Please login to see your Routines.</p>}
+      
         
     </div>
   );

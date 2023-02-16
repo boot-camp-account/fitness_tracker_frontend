@@ -30,7 +30,7 @@ const navigate = useNavigate();
             });
                 alert("You have successfully submitted a new post!");
                 document.getElementById("new-post-form").reset();
-                navigate('/posts');
+                navigate('/activities');
                 const result = await response.json();
             } catch (error) {
                 console.error(error);
@@ -41,7 +41,7 @@ const navigate = useNavigate();
         <div id='login'>
             <div className='register-form bold'>
 
-                <h1>Add A New Post</h1>
+                <h1>Add A New Activity</h1>
                 <form id="new-post-form" onSubmit={(event) => {
                 event.preventDefault();
                 createNewPost();
