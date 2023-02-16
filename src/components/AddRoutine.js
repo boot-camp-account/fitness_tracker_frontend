@@ -20,6 +20,7 @@ const AddRoutine = ({ myRoutines, setMyRoutines }) => {
     <div className="post-div">
       <form onSubmit={handleSubmit}>
         <h3>Create a New Routine:</h3>
+        <br></br>
         <label><b>Routine Name:</b></label>
         <input
           type='text'

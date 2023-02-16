@@ -41,10 +41,10 @@ const Profile = () => {
 
   
   return (
-    <div id="posts">
+    <div>
       {info && info.username ? 
       
-      <div>
+      <div id="posts">
       <h2>Hello, {info.username}.</h2> 
       <br></br>
 
@@ -65,8 +65,10 @@ const Profile = () => {
         </div>
       </div>
       
-      : <div className="login-div">
-          <p>Sorry, you've reached a restricted page. Please login to see your Routines.</p>
+      : <div id="login">
+          <div className="login-div">
+            <p>Sorry, you've reached a restricted page. Please login to see your Routines.</p>
+          </div>
         </div>}
       
         
