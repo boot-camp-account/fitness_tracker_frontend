@@ -41,7 +41,7 @@ const Navbar = ({token, logout}) => {
                 <NavLink to="/routines">
                     <li>Routines</li>
                 </NavLink>
-                <NavLink to="/profile">
+                <NavLink to="/myroutines">
                     <li>My Routines</li>
                 </NavLink>
                 {

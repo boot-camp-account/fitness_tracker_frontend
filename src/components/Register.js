@@ -1,29 +1,27 @@
 import React, { useState } from 'react';
 
-const baseURL = 'https://strangers-things.herokuapp.com/api/2209-FTB-MT-WEB-PT'
-
+// const baseURL = 'http://fitnesstrac-kr.herokuapp.com/api/users/register'
 
 const Register = ({username, password, setTokenFromParent, setUsernameFromParent, setPasswordFromParent}) => {
 
     const handleSubmit = async () => {
-            fetch(`${baseURL}/users/register`, {
+            fetch('http://fitnesstrac-kr.herokuapp.com/api/users/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    user: {
                         username: `${username}`,
                         password: `${password}`
-                    }
-                })
+                     })
             }).then (response => response.json())
               .then (result => {
 
-                if (result.success) {
-                    alert("You have successfully registered! Please login using your registration credentials")
-                } else if (result.error.message) {
-                    alert("This account has already been registered. Please login or try a different username")
+                // {"user":{"id":427,"username":"clayton51"},"message":"you're signed up!","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDI3LCJ1c2VybmFtZSI6ImNsYXl0b241MSIsImlhdCI6MTY3NjUxNzgwNCwiZXhwIjoxNjc3MTIyNjA0fQ.GPz2o7HwpKjKWHxIM5yrIhYPsNGN9pztN_z0Ej1JiEs"}
+                if (result.message) {
+                    alert(result.message)
+                } else if (result.error) {
+                    alert(result.error)
                 }
               })            
     }

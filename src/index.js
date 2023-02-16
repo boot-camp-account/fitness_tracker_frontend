@@ -23,7 +23,7 @@ const App = () => {
             <Route path='/activities' element={<Activities token={token} navigate={navigate}/>}/>
             <Route path='/routines' element={<Routines token={token} navigate={navigate}/>}/>
             <Route path='/posts/addpost' element={<CreatePost username={username} password={password} token={token} navigate={navigate}/>}/>
-            <Route path='/profile' element={<Profile username={username} password={password} token={token}/>}/>
+            <Route path='/myroutines' element={<Profile username={username} password={password} token={token}/>}/>
             <Route path='/register' element={<Register username={username} password={password} setUsernameFromParent={setUsername} setPasswordFromParent={setPassword} setTokenFromParent={setToken}/>}/>
             <Route path='/login' element={<Login username={username} password={password} setUsernameFromParent={setUsername} setPasswordFromParent={setPassword} setTokenFromParent={setToken} navigate={navigate}/>}/>
           </Routes>

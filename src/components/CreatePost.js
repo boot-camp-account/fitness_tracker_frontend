@@ -12,7 +12,7 @@ const navigate = useNavigate();
 
     const createNewPost = async () => {
         try {
-            const response = await fetch('https://strangers-things.herokuapp.com/api/2209-FTB-MT-WEB-PT/posts', {
+            const response = await fetch('https://fitnesstrac-kr.herokuapp.com/api/activities', {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',
@@ -20,11 +20,8 @@ const navigate = useNavigate();
                 },
                    body: JSON.stringify({
                     post: {
-                        title: title,
+                        name: title,
                         description: description,
-                        price: price,
-                        location: location,
-                        willDeliver: true
                     },
                 }),
             });

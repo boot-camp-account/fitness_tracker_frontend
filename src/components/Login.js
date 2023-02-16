@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 
-const baseURL = 'https://strangers-things.herokuapp.com/api/2209-FTB-MT-WEB-PT'
+const baseURL = 'http://fitnesstrac-kr.herokuapp.com/api/users/login'
 
 
 const Login = ({username, password, setTokenFromParent, setUsernameFromParent, setPasswordFromParent}) => {
@@ -9,26 +9,24 @@ const Login = ({username, password, setTokenFromParent, setUsernameFromParent, s
 
     const handleLogin = async () => {
         
-        fetch(`${baseURL}/users/login`, {
+        fetch(`${baseURL}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                user: {
-                    username: `${username}`,
-                    password: `${password}`
-                }
+                username: `${username}`,
+                password: `${password}`
             })
         }).then (response => response.json())
           .then (result => {
 
-            if (result.success) {
-                setTokenFromParent(result.data.token);
-                window.localStorage.setItem('token', result.data.token);
+            if (result.message) {
+                setTokenFromParent(result.token);
+                window.localStorage.setItem('token', result.token);
                 navigate('/profile');
-            } else if (result.error.message) {
-                alert("This account has already been registered. Please login or try a different username")
+            } else if (result.error) {
+                alert(result.error)
             }
           })            
 }
