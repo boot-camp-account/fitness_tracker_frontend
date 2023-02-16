@@ -35,7 +35,7 @@ const Activities = ({token}) => {
     // }, [token])
 
     const navigateToNewPostForm = async () => {
-        navigate('/posts/addpost');           
+        navigate('/activities/addactivity');           
         };
 
     const deletePost = async () => {

@@ -5,9 +5,6 @@ import { useNavigate } from 'react-router-dom';
 const CreatePost = ({token}) => {
 const [title, setTitle] = useState('');
 const [description, setDescription] = useState('');
-const [location, setLocation] = useState('');
-const [price, setPrice] = useState('');
-const [willDeliver, setWillDeliver] = useState('');
 const navigate = useNavigate();
 
     const createNewPost = async () => {
@@ -44,7 +41,7 @@ const navigate = useNavigate();
                 createNewPost();
                 }}>
                 <br></br>
-                <input type="text" placeholder="Title of New Activity" onChange={(event) => setTitle(event.target.value)} />
+                <input type="text" placeholder="Name of New Activity" onChange={(event) => setTitle(event.target.value)} />
                 <br></br>
 
                 <br></br>

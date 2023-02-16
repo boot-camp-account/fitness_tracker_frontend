@@ -24,7 +24,7 @@ const Login = ({username, password, setTokenFromParent, setUsernameFromParent, s
             if (result.message) {
                 setTokenFromParent(result.token);
                 window.localStorage.setItem('token', result.token);
-                navigate('/profile');
+                navigate('/myroutines');
             } else if (result.error) {
                 alert(result.error)
             }
