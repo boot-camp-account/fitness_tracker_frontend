@@ -46,9 +46,3 @@ const UpdateRoutine = ({ routineId, routineName, routineGoal, setMyRoutines }) =
 };
 
 export default UpdateRoutine;
-
-
-
-
-
-

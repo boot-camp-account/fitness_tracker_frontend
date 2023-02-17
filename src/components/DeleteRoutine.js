@@ -23,6 +23,3 @@ const DeleteRoutine = ({ routineId, setMyRoutines }) => {
 };
 
 export default DeleteRoutine;
-
-
-
