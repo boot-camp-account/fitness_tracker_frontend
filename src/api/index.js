@@ -16,6 +16,22 @@ export const getUser = async () => {
   }
 };
 
+
+export const getUserPublicRoutine = async (username) => {
+  try {
+    const response = await fetch(`${BASE_URL}users/${username}/routines`, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    throw error;
+  }
+};
+
+
 export const getUserRoutine = async (username) => {
   const token = localStorage.getItem("token");
   try {

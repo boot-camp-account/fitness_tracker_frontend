@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getUser, getUserRoutine, getRoutines } from "../api";
+import { getUserPublicRoutine} from "../api";
 
 const UserRoutines = ({individualUsername}) => {
     // const [userInformation, setUserInformation] = useState({});
@@ -7,7 +7,7 @@ const UserRoutines = ({individualUsername}) => {
 
     const getUserRoutines = async () => {
         try {
-            const result = await getUserRoutine(individualUsername);
+            const result = await getUserPublicRoutine(individualUsername);
             if (result) {
               setUserRoutines(result);
             }
