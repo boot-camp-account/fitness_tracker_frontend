@@ -3,8 +3,7 @@ import { getUser, getUserRoutine } from "../api";
 import { AddRoutine, DeleteRoutine} from "./";
 import { UpdateRoutine } from "./";
 
-
-const Profile = ({ user}) => {
+const Profile = ({user}) => {
   const userID = user.id;
   const [info, setInfo] = useState({});
   const [myRoutines, setMyRoutines] = useState([]);
@@ -18,22 +17,7 @@ const Profile = ({ user}) => {
     } catch (error) {
       console.error(error);
     }
-  };
-
-  // const getMyRoutines = async () => {
-  //   try {
-  //     if (info && info.username) {
-  //       const result = await getUserRoutine(info);
-  //       if (result) {
-  //         setInfo(result);
-  //         setMyRoutines(result.routines);
-  //       }
-  //     }
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
-  
+  };  
 
   const getMyRoutines = async () => {
     try {
