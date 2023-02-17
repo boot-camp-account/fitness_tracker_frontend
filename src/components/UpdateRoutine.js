@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import {updateRoutines} from "../api";
 
+
 const UpdateRoutine = ({ routineId, routineName, routineGoal, setMyRoutines }) => {
   const [name, setName] = useState(routineName);
   const [goal, setGoal] = useState(routineGoal);
-  const [User, setUser] = useState(null);
+  // const [User, setUser] = useState(null);
 
   const handleUpdate = async (e) => {
     e.preventDefault();
