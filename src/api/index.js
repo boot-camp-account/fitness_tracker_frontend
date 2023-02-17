@@ -30,10 +30,24 @@ export const getUserPublicRoutine = async (username) => {
   }
 };
 
+export const getActivityPublicRoutines = async (activityId) => {
+  try {
+    const response = await fetch(`${BASE_URL}activities/${activityId}/routines`, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    throw error;
+  }
+};
+
 export const getUserRoutine = async (username) => {
   const token = localStorage.getItem("token");
   try {
-    const response = await fetch(`${BASE_URL}users?username=${username}`, {
+    const response = await fetch(`${BASE_URL}users/username=${username}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -156,22 +170,6 @@ export const postRoutines = async (name, goal, isPublic,) => {
   }
 };
 
-// export const updateRoutines = async (routineId, name, goal, isPublic) => {
-//   const response = await fetch(`${BASE_URL}/routines/${routineId}`, {
-//     method: "PATCH",
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//     body: JSON.stringify({
-//       name: name,
-//       goal: goal,
-//       isPublic: isPublic,
-//     }),
-//   });
-//   const result = await response.json();
-//   return result;
-// };
-
 export const updateRoutines = async (routineId, name, goal, isPublic) => {
   const token = localStorage.getItem("token");
   const response = await fetch(`${BASE_URL}/routines/${routineId}`, {
@@ -190,8 +188,6 @@ export const updateRoutines = async (routineId, name, goal, isPublic) => {
   const result = await response.json();
   return result;
 };
-
-
 
 export const deleteRoutine = async (token, routineId) => {
   const response = await fetch(`${BASE_URL}routines/${routineId}`, {

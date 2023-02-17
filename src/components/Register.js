@@ -1,9 +1,7 @@
 
 import React, { useState } from 'react';
 
-// const baseURL = 'http://fitnesstrac-kr.herokuapp.com/api/users/register'
-
-const Register = ({username, password, setTokenFromParent, setUsernameFromParent, setPasswordFromParent}) => {
+const Register = ({username, password, setUsernameFromParent, setPasswordFromParent}) => {
 
     const handleSubmit = async () => {
             fetch('http://fitnesstrac-kr.herokuapp.com/api/users/register', {
@@ -17,8 +15,6 @@ const Register = ({username, password, setTokenFromParent, setUsernameFromParent
                      })
             }).then (response => response.json())
               .then (result => {
-
-                // {"user":{"id":427,"username":"clayton51"},"message":"you're signed up!","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDI3LCJ1c2VybmFtZSI6ImNsYXl0b241MSIsImlhdCI6MTY3NjUxNzgwNCwiZXhwIjoxNjc3MTIyNjA0fQ.GPz2o7HwpKjKWHxIM5yrIhYPsNGN9pztN_z0Ej1JiEs"}
                 if (result.message) {
                     alert(result.message)
                 } else if (result.error) {

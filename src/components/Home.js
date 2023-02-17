@@ -2,7 +2,6 @@ import React from 'react';
 
 const Home = ({username, token}) => {
     return (
-        
         <div id="home">
             {
                 token ? (
@@ -14,7 +13,6 @@ const Home = ({username, token}) => {
                         <br></br>
                         <img src={require('./fitness_app_photo.jpeg')}></img>
                     </div>) 
-                    
                     : (
                         <div>
                             <h1>Welcome to Fitness Tracker!</h1>
