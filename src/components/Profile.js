@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { getUser, getUserRoutine } from "../api";
 import { AddRoutine, DeleteRoutine} from "./";
+import { UpdateRoutine } from "./";
 
 
-const Profile = () => {
+const Profile = ({ user}) => {
+  const userID = user.id;
   const [info, setInfo] = useState({});
   const [myRoutines, setMyRoutines] = useState([]);
 
@@ -17,6 +19,21 @@ const Profile = () => {
       console.error(error);
     }
   };
+
+  // const getMyRoutines = async () => {
+  //   try {
+  //     if (info && info.username) {
+  //       const result = await getUserRoutine(info);
+  //       if (result) {
+  //         setInfo(result);
+  //         setMyRoutines(result.routines);
+  //       }
+  //     }
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
+  
 
   const getMyRoutines = async () => {
     try {
@@ -56,7 +73,22 @@ const Profile = () => {
                 <div className="post-div" key={`profile:${routine.id} ${index}`}>
                   <p><b>Routine:</b> {routine.name}</p>
                   <p><b>Goal:</b> {routine.goal}</p>
+<<<<<<< HEAD
                   <DeleteRoutine routineId={routine.id} setMyRoutines={setMyRoutines} />
+=======
+               
+                  {/* <DeleteRoutine routineId={routine.id} setMyRoutines={setMyRoutines} /> */}
+                  <React.Fragment>
+                  <UpdateRoutine
+                  routineId={routine.id}
+                  routineName={routine.name}
+                  routineGoal={routine.goal}
+                  setMyRoutines={setMyRoutines}
+                  />
+                  <DeleteRoutine routineId={routine.id} setMyRoutines={setMyRoutines} />
+                  </React.Fragment>
+
+>>>>>>> 2d060d8c963188bc60b0ded498890a207b4163ee
               </div>
             );
           })

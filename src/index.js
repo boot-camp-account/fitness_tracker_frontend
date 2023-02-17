@@ -8,6 +8,7 @@ const App = () => {
   const [username, setUsername] = useState('');
   const [individualUsername, setIndividualUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [user, setUser] = useState({});
 
   const navigate = useNavigate;
 
@@ -24,7 +25,7 @@ const App = () => {
             <Route path='/activities' element={<Activities token={token} navigate={navigate}/>}/>
             <Route path='/routines' element={<Routines token={token} setIndividualUsernameFromParent={setIndividualUsername} navigate={navigate}/>}/>
             <Route path='/activities/addactivity' element={<AddActivity username={username} password={password} token={token} navigate={navigate}/>}/>
-            <Route path='/myroutines' element={<Profile username={username} password={password} token={token}/>}/>
+            <Route path='/myroutines' element={<Profile username={username} password={password} token={token}  user={ user }/>}/>
             <Route path='/register' element={<Register username={username} password={password} setUsernameFromParent={setUsername} setPasswordFromParent={setPassword} setTokenFromParent={setToken}/>}/>
             <Route path='/login' element={<Login username={username} password={password} setUsernameFromParent={setUsername} setPasswordFromParent={setPassword} setTokenFromParent={setToken} navigate={navigate}/>}/>
             <Route path='/user-routines' element={<UserRoutines username={username} individualUsername={individualUsername} navigate={navigate}/>}/>
