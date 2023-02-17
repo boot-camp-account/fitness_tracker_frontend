@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getUserRoutine } from "../api";
+import { getUserPublicRoutine } from "../api";
 
 const UserRoutines = ({individualUsername}) => {
   const [routines, setRoutines] = useState([]);
