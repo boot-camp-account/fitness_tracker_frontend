@@ -163,10 +163,13 @@ export const postRoutines = async (name, goal, isPublic,) => {
 };
 
 export const updateRoutines = async (routineId, name, goal, isPublic) => {
+  const token = localStorage.getItem("token");
   const response = await fetch(`${BASE_URL}/routines/${routineId}`, {
+
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
+       Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify({
       name: name,

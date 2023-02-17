@@ -6,8 +6,9 @@ const AddRoutine = ({ myRoutines, setMyRoutines }) => {
     event.preventDefault();
     const name = event.target[0].value;
     const goal = event.target[1].value;
+    const isPublic = true;
 
-    const result = await postRoutines(name, goal);
+    const result = await postRoutines(name, goal, isPublic);
     if (result) {
       setMyRoutines([result, ...myRoutines]);
       document.getElementById('new-post-form').reset();
