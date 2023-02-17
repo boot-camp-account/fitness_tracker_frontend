@@ -47,23 +47,6 @@ export const getUserRoutine = async (username) => {
 };
 
 
-
-// export const getUserRoutine = async (username) => {
-//   const token = localStorage.getItem("token");
-//   try {
-//     const response = await fetch(`${BASE_URL}users/${username}/routines`, {
-//       method: "GET",
-//       headers: {
-//         "Content-Type": "application/json",
-//         Authorization: `Bearer ${token}`,
-//       },
-//     });
-//     const result = await response.json();
-//     return result;
-//   } catch (error) {
-//     throw error;
-//   }
-// };
  
 
 export const getRoutines = async () => {
