@@ -1,0 +1,161 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+  border-right: 1px solid #bbb;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #4977fb;
+}
+
+body {
+  background-color: white;
+}
+
+#home {
+ padding-top: 15px;
+ text-align: center;
+ background-color: white;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+}
+
+#login {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
+#profile {
+  margin: 15px;
+}
+
+#posts {
+  background-color: #bbb;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.post-div {
+  border-radius: 4px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 15px;
+  padding: 5px;
+  background-color: white;
+}
+
+#posts h1 {
+  color: black;
+}
+
+#posts h2 {
+  color: black;
+}
+
+.post-description {
+  color: gray;
+}
+
+#posts p {
+  color: black;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.normal-font {
+  font-weight: normal;
+}
+
+button {
+  background-color: #333;
+  border: none;
+  color: white;
+  padding: 12px 12px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #4977fb;
+  color: white;
+}
+
+.login-div {
+  margin-top: 20px;
+  background-color: lightgray;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  width: 750px;
+  border-radius: 5px;
+}
+
+input {
+  text-align: center;
+}
+
+#register {
+ padding-top: 15px;
+ text-align: center;
+ background-color: white;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ text-align: center;
+ justify-content: center;
+}
+
+.register-form {
+  margin-top: 20px;
+  background-color: lightgray;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  width: 750px;
+  border-radius: 5px;
+}
+
+#home input {
+  width: 245px;
+}
+
+#login input {
+  width: 250px;
+}
+
+.myPosts {
+  background-color: lightgoldenrodyellow;
+}
+
+.highlight {
+  color: #4977fb
+}

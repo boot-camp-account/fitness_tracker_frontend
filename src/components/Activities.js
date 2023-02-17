@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { useNavigate, NavLink } from 'react-router-dom';
 import { getActivities } from '../api';
 
 const Activities = ({token, setActivityIdFromParent}) => {
     const [activities, setActivities] = useState([]);
+    const navigate = useNavigate();
+
+    const navigateToNewPostForm = async () => {
+        navigate('/activities/addactivity');           
+        };
 
     const getActivitiesInfo = async () => {
         try {
