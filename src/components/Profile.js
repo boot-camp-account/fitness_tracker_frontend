@@ -73,11 +73,7 @@ const Profile = ({ user}) => {
                 <div className="post-div" key={`profile:${routine.id} ${index}`}>
                   <p><b>Routine:</b> {routine.name}</p>
                   <p><b>Goal:</b> {routine.goal}</p>
-<<<<<<< HEAD
-                  <DeleteRoutine routineId={routine.id} setMyRoutines={setMyRoutines} />
-=======
-               
-                  {/* <DeleteRoutine routineId={routine.id} setMyRoutines={setMyRoutines} /> */}
+                  <DeleteRoutine routineId={routine.id} setMyRoutines={setMyRoutines} />               
                   <React.Fragment>
                   <UpdateRoutine
                   routineId={routine.id}
@@ -87,8 +83,6 @@ const Profile = ({ user}) => {
                   />
                   <DeleteRoutine routineId={routine.id} setMyRoutines={setMyRoutines} />
                   </React.Fragment>
-
->>>>>>> 2d060d8c963188bc60b0ded498890a207b4163ee
               </div>
             );
           })
