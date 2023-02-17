@@ -1,9 +1,9 @@
-
-
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { postActivities } from '../api';
 
 const AddActivity = ({ allActivities, setAllActivities }) => {
+    const navigate = useNavigate();
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
 
@@ -12,39 +12,46 @@ const AddActivity = ({ allActivities, setAllActivities }) => {
 
         const result = await postActivities(name, description);
 
-        if (result) {
-            setAllActivities([result, ...allActivities]);
+        if (result.error) {
+            document.getElementById('new-post-form').reset();
+            alert("Error: " + result.message)
+        } else if (result.id) {
+            // alert(result.error);
+            // setAllActivities([result, ...allActivities]);
             alert('You have successfully created a new activity!');
             document.getElementById('new-post-form').reset();
-        }
-
-        if (result.error) {
-            alert(result.error);
+            navigate('/activities');
         }
     };
 
     return (
-        <div >
-            <form onSubmit={handleSubmit}>
-                <h3 >Create an Activity</h3>
-                <input
-                    type='text'
-                    id='nameActivity'
-                    required
-                    placeholder='Activity Name'
-                    onChange={(event) => setName(event.target.value)}
-                />
-                <input
-                    type='text'
-                    id='goalActivity'
-                    required
-                    placeholder='Description'
-                    onChange={(event) => setDescription(event.target.value)}
-                />
-                <button type='submit'>
-                    Add➕
-                </button>
-            </form>
+        <div id="login">
+            <div className='register-form'>
+                <form id="new-post-form" onSubmit={handleSubmit}>
+                    <h3>Create an Activity</h3>
+                    <br></br>
+                    <input
+                        type='text'
+                        id='nameActivity'
+                        required
+                        placeholder='New Activity Name'
+                        onChange={(event) => setName(event.target.value)}
+                    />
+                    <br></br>
+                    <br></br>
+                    <input
+                        type='text'
+                        id='goalActivity'
+                        required
+                        placeholder='New Activity Description'
+                        onChange={(event) => setDescription(event.target.value)}
+                    />
+                    <br></br>
+                    <button type='submit'>
+                        Add Activity
+                    </button>
+                </form>
+            </div>
         </div>
     );
 };

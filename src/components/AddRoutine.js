@@ -10,6 +10,7 @@ const AddRoutine = ({ myRoutines, setMyRoutines }) => {
     const result = await postRoutines(name, goal);
     if (result) {
       setMyRoutines([result, ...myRoutines]);
+      document.getElementById('new-post-form').reset();
     }
 
     if (result.error) {
@@ -18,7 +19,7 @@ const AddRoutine = ({ myRoutines, setMyRoutines }) => {
   };
   return (
     <div className="post-div">
-      <form onSubmit={handleSubmit}>
+      <form id="new-post-form" onSubmit={handleSubmit}>
         <h3>Create a New Routine:</h3>
         <br></br>
         <label><b>Routine Name:</b></label>

@@ -6,6 +6,7 @@ import { AddRoutine, DeleteRoutine} from "./";
 const Profile = () => {
   const [info, setInfo] = useState({});
   const [myRoutines, setMyRoutines] = useState([]);
+
   const getUserInfo = async () => {
     try {
       const result = await getUser();
@@ -38,8 +39,6 @@ const Profile = () => {
     getMyRoutines();
   }, [info]);
 
-
-  
   return (
     <div>
       {info && info.username ? 
@@ -57,9 +56,7 @@ const Profile = () => {
                 <div className="post-div" key={`profile:${routine.id} ${index}`}>
                   <p><b>Routine:</b> {routine.name}</p>
                   <p><b>Goal:</b> {routine.goal}</p>
-               
                   <DeleteRoutine routineId={routine.id} setMyRoutines={setMyRoutines} />
-
               </div>
             );
           })

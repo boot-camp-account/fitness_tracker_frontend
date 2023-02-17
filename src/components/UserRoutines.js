@@ -1,32 +1,32 @@
-import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
-import { getRoutines } from "../api";
+import React, { useState, useEffect } from "react";
+import { getUser, getUserRoutine, getRoutines } from "../api";
 
-const Routines = ({setIndividualUsernameFromParent}) => {
-  const [routines, setRoutines] = useState([]);
+const UserRoutines = ({individualUsername}) => {
+    // const [userInformation, setUserInformation] = useState({});
+    const [userRoutines, setUserRoutines] = useState([]);
 
-  const getRoutinesInfo = async () => {
-    try {
-      const result = await getRoutines();
-      if (result) {
-        setRoutines(result);
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  };
+    const getUserRoutines = async () => {
+        try {
+            const result = await getUserRoutine(individualUsername);
+            if (result) {
+              setUserRoutines(result);
+            }
+        } catch (error) {
+          console.error(error);
+        }
+      };
 
-  useEffect(() => {
-    getRoutinesInfo();
-  }, []);
+useEffect(() => {
+    getUserRoutines();
+}, []);
 
-  return (
+return (
     <div id="posts">
-      <h1>All Active Routines:</h1>
+      <h1>All Active Routines for {individualUsername}:</h1>
 
       <div>
-        {routines.length ? (
-          routines.map((routine) => {
+        {userRoutines.length ? (
+          userRoutines.map((routine) => {
             const { id, name, isPublic, goal, creatorName, activities } = routine;
             if (isPublic) {
               return (
@@ -34,7 +34,7 @@ const Routines = ({setIndividualUsernameFromParent}) => {
                   <div>
                     <h3>Routine Name: {name}</h3>
                     <p><b>Goal:</b> {goal}</p>
-                    <p><b>Creator:</b> <NavLink to="/user-routines" onClick={() => setIndividualUsernameFromParent(routine.creatorName)}>{creatorName}</NavLink></p>
+                    <p><b>Creator:</b> {creatorName}</p>
                   </div>
                   <br></br>
                   <h3><u>Activities in this Routine:</u></h3>
@@ -57,10 +57,10 @@ const Routines = ({setIndividualUsernameFromParent}) => {
               return null;
             }
           })
-        ) : null}
+        ) : <h2>Hi</h2>}
       </div>
     </div>
   );
-};
+}
 
-export default Routines;
+export default UserRoutines;

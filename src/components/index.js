@@ -8,5 +8,4 @@ export { default as Login } from "./Login";
 export { default as AddActivity } from './AddActivity';
 export {default as DeleteRoutine} from './DeleteRoutine'
 export {default as AddRoutine} from './AddRoutine'
-
- 
+export {default as UserRoutines} from './UserRoutines'

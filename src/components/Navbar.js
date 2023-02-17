@@ -28,7 +28,6 @@ ul {
 `
 
 const Navbar = ({token, logout}) => {
-
     return (
         <header>
             <NavUnlisted>
@@ -58,8 +57,6 @@ const Navbar = ({token, logout}) => {
                 }
             </NavUnlisted>
         </header>
-    
-
     )
 }
 
