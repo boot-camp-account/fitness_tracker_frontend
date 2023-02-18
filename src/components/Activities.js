@@ -30,9 +30,13 @@ const Activities = ({token, setActivityIdFromParent}) => {
             {
                 token ? (
                     <div>
-                        <h1>Currently Active Activities:</h1>
-                        <button onClick={navigateToNewPostForm}>Create New Activity</button>
-                        <p><br></br></p>
+                        <div className='post-div'>
+                            <h2>Would you like to create a new Activity?</h2>
+                            <button onClick={navigateToNewPostForm}>Create New Activity</button>
+                        </div>
+                        <div>
+                            <h2>Currently Active Activities:</h2>
+                        </div>
                     </div>
                 ) : (
                     <h1>Currently Active Activities:</h1>
@@ -44,12 +48,12 @@ const Activities = ({token, setActivityIdFromParent}) => {
                     activities && activities.map((activity) => {
                         return (
                             <div key={activity.id} className="post-div">
-                                <h2>Activity Name: <span className='normal-font'><NavLink to="/user-activities" onClick={() => setActivityIdFromParent(activity.id)} >{activity.name}</NavLink></span></h2>
-                                <h3>Activity Description: <span className='normal-font'>{activity.description}</span></h3>
+                                <p><b>Activity Name:</b> <span className='normal-font'><NavLink to="/user-activities" onClick={() => setActivityIdFromParent(activity.id)} >{activity.name}</NavLink></span></p>
+                                <p><b>Activity Description:</b> <span className='normal-font'>{activity.description}</span></p>
                                 <button onClick={() => {
                                     updateActivityDescription(activity.id, activity.description)
                                     }
-                                }>Edit Activity</button>
+                                }>Edit Activity Description</button>
                             </div>
                         )
                     })
