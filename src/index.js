@@ -22,6 +22,7 @@ const App = () => {
       <BrowserRouter>
         <Navbar logout={logout} token={token}/>
           <Routes>
+            <Route path='/' element={<Home username={username} token={token}/>}/>
             <Route path='/home' element={<Home username={username} token={token}/>}/>
             <Route path='/activities' element={<Activities token={token} setActivityIdFromParent={setActivityId} navigate={navigate}/>}/>
             <Route path='/routines' element={<Routines token={token} setIndividualUsernameFromParent={setIndividualUsername} navigate={navigate}/>}/>
