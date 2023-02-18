@@ -26,7 +26,7 @@ const AddActivity = () => {
         <div id="login">
             <div className='register-form'>
                 <form id="new-post-form" onSubmit={handleSubmit}>
-                    <h3>Create New Activity</h3>
+                    <h1>Create New Activity</h1>
                     <br></br>
                     <input
                         type='text'
@@ -44,6 +44,7 @@ const AddActivity = () => {
                         placeholder='New Activity Description'
                         onChange={(event) => setDescription(event.target.value)}
                     />
+                    <br></br>
                     <br></br>
                     <button type='submit'>
                         Add Activity

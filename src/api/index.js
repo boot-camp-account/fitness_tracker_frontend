@@ -19,6 +19,7 @@ export const getUser = async () => {
 export const getUserPublicRoutine = async (username) => {
   try {
     const response = await fetch(`${BASE_URL}users/${username}/routines`, {
+      method: "GET",
       headers: {
         "Content-Type": "application/json",
       },
@@ -135,6 +136,22 @@ export const updateActivities = async (activityId, name, description) => {
     }),
   });
   const result = await response.json();
+  return result;
+};
+
+export const updateActivityDescription = async (activityId, description) => {
+  const response = await fetch(`${BASE_URL}/activities/${activityId}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      description: description,
+    }),
+  });
+  const result = await response.json();
+  prompt("Please enter a new description for the Activity")
+  console.log("hi")
   return result;
 };
 
