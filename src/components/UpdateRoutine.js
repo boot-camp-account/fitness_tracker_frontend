@@ -29,24 +29,28 @@ const UpdateRoutine = ({ routineId, routineName, routineGoal, routineIsPublic, s
   };
 
   return (
-    <form onSubmit={handleUpdate}>
-      <label>
-        Routine Name:
-        <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
-      </label>
-      <br />
-      <label>
-        Goal:
-        <input type="text" value={goal} onChange={(e) => setGoal(e.target.value)} />
-      </label>
-      <br />
-      <label>
-        Is Public:
-        <input type="checkbox" checked={isPublic} onChange={(e) => setIsPublic(e.target.checked)} />
-      </label>
-      <br />
-      <button type="submit">Update</button>
-    </form>
+    <div>
+      <form onSubmit={handleUpdate}>
+        <label>
+          <b>Updated Routine Name: </b>
+          <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+        </label>
+        <br />
+        <label>
+          <b>Updated Routine Goal: </b>
+          <input type="text" value={goal} onChange={(e) => setGoal(e.target.value)} />
+        </label>
+        <br />
+        <label>
+          <b>Is Public: </b>
+          <input type="checkbox" checked={isPublic} onChange={(e) => setIsPublic(e.target.checked)} />
+        </label>
+        <br />
+        <button type="submit">Update</button>
+        <br/>
+        <br/>
+      </form>
+    </div>
   );
 };
 
