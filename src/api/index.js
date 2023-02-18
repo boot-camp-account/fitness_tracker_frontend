@@ -48,32 +48,47 @@ export const getActivityPublicRoutines = async (activityId) => {
 export const getUserRoutine = async (username) => {
   const token = localStorage.getItem("token");
   try {
-    const response = await fetch(`${BASE_URL}users/username=${username}`, {
+    const response = await fetch(`${BASE_URL}${username}/routines`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
     });
-    const users = await response.json();
-    if (users.length > 0) {
-      const user = users[0];
-      const routinesResponse = await fetch(`${BASE_URL}users/${user.id}/routines`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      });
-      const routines = await routinesResponse.json();
-      return { user, routines };
-    } else {
-      throw new Error("User not found");
-    }
   } catch (error) {
-    throw error;
+    console.log(error);
   }
 };
+
+// export const getUserRoutine = async (username) => {
+//   const token = localStorage.getItem("token");
+//   try {
+//     const response = await fetch(`${BASE_URL}users/username=${username}`, {
+//       method: "GET",
+//       headers: {
+//         "Content-Type": "application/json",
+//         Authorization: `Bearer ${token}`,
+//       },
+//     });
+//     const users = await response.json();
+//     if (users.length > 0) {
+//       const user = users[0];
+//       const routinesResponse = await fetch(`${BASE_URL}users/${user.id}/routines`, {
+//         method: "GET",
+//         headers: {
+//           "Content-Type": "application/json",
+//           Authorization: `Bearer ${token}`,
+//         },
+//       });
+//       const routines = await routinesResponse.json();
+//       return { user, routines };
+//     } else {
+//       throw new Error("User not found");
+//     }
+//   } catch (error) {
+//     throw error;
+//   }
+// };
 
 export const getRoutines = async () => {
   try {

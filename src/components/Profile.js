@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { getUser, getUserRoutine, attachActivity } from "../api";
+import { getUser, getUserRoutine, attachActivity, getUserPublicRoutine } from "../api";
 import { AddRoutine, DeleteRoutine, UpdateRoutine, AddActivityToRoutine } from "./";
 
 
 
-const Profile = ({user}) => {
+const Profile = ({user, username}) => {
   const userID = user.id;
   const [info, setInfo] = useState({});
   const [myRoutines, setMyRoutines] = useState([]);
@@ -23,7 +23,7 @@ const Profile = ({user}) => {
   const getMyRoutines = async () => {
     try {
       if (info && info.username) {
-        const result = await getUserRoutine(info.username);
+        const result = await getUserPublicRoutine(username);
         if (result) {
           setMyRoutines(result);
         }
@@ -46,7 +46,7 @@ const Profile = ({user}) => {
       {info && info.username ? 
       
       <div id="posts">
-      <h2>Hello, {info.username}.</h2> 
+      <h2>Hello, {info.username}!</h2> 
       <br></br>
 
       <div>
@@ -56,9 +56,11 @@ const Profile = ({user}) => {
         ? myRoutines.map((routine, index) => {
             return (
                 <div className="post-div" key={`profile:${routine.id} ${index}`}>
-                  <p><b>Routine:</b> {routine.name}</p>
-                  <p><b>Goal:</b> {routine.goal}</p>
-                  <DeleteRoutine routineId={routine.id} setMyRoutines={setMyRoutines} />               
+                  <p><b>Routine Name:</b> {routine.name}</p>
+                  <p><b>Routine Goal:</b> {routine.goal}</p>
+                  <DeleteRoutine routineId={routine.id} setMyRoutines={setMyRoutines} />  
+                  <br/>
+                  <br/>             
                   <React.Fragment>
                   <UpdateRoutine
                   routineId={routine.id}
@@ -66,7 +68,7 @@ const Profile = ({user}) => {
                   routineGoal={routine.goal}
                   setMyRoutines={setMyRoutines}
                   />
-                  <DeleteRoutine routineId={routine.id} setMyRoutines={setMyRoutines} />
+                  {/* <DeleteRoutine routineId={routine.id} setMyRoutines={setMyRoutines} /> */}
                   <AddActivityToRoutine
                   routineId={routine.id}
                   myRoutines={myRoutines}
