@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 const Register = ({username, password, setUsernameFromParent, setPasswordFromParent}) => {
 
     const handleSubmit = async () => {
-            fetch('http://fitnesstrac-kr.herokuapp.com/api/users/register', {
+            fetch('https://fitnesstrac-kr.herokuapp.com/api/users/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -17,8 +17,10 @@ const Register = ({username, password, setUsernameFromParent, setPasswordFromPar
               .then (result => {
                 if (result.message) {
                     alert(result.message)
+                    document.getElementById("registration-form").reset();
                 } else if (result.error) {
-                    alert(result.error)
+                    alert("Error", result.error)
+                    document.getElementById("registration-form").reset();
                 }
               })            
     }
@@ -29,7 +31,7 @@ const Register = ({username, password, setUsernameFromParent, setPasswordFromPar
             <h1>Registration:</h1>
             
             <div className='login-div'>
-                <form onSubmit={(event) => 
+                <form id="registration-form" onSubmit={(event) => 
                     {event.preventDefault(); 
                     handleSubmit(); }}>
                 

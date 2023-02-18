@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { getRoutines } from "../api";
 
-const Routines = ({setIndividualUsernameFromParent}) => {
+const Routines = ({ setActivityIdFromParent, setIndividualUsernameFromParent}) => {
   const [routines, setRoutines] = useState([]);
 
   const getRoutinesInfo = async () => {
@@ -42,7 +42,7 @@ const Routines = ({setIndividualUsernameFromParent}) => {
                     {activities.map(({ id, name, description, count, duration }) => {
                       return (
                         <div key={id}>
-                          <p><b>Activity:</b> {name}</p>
+                          <p><b>Activity:</b> <NavLink to="/user-activities" onClick={() => setActivityIdFromParent(routine.id)}>{name}</NavLink></p>
                           <p><b>Description:</b> {description}</p>
                           <p><b>Count:</b> {count}</p>
                           <p><b>Duration:</b> {duration}</p>
