@@ -202,10 +202,12 @@ export const deleteRoutine = async (token, routineId) => {
 };
 
 export const attachActivity = async (activityId, count, duration, routineId) => {
+  const token = localStorage.getItem("token");
   const response = await fetch(`${BASE_URL}routines/${routineId}/activities`, {
     method: "POST",
     header: {
       "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify({
       activityId: activityId,
