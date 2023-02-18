@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 
-const baseURL = 'http://fitnesstrac-kr.herokuapp.com/api/users/login'
+const baseURL = 'https://fitnesstrac-kr.herokuapp.com/api/users/login'
 
 
 const Login = ({username, password, setTokenFromParent, setUsernameFromParent, setPasswordFromParent}) => {
