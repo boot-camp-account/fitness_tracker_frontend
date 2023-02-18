@@ -23,10 +23,9 @@ const UserActivities = ({activityId}) => {
 
   return (
     <div id="posts">
-      <h1>These Public Routines Feature the Activity: <span className="highlight">"{routineName}"</span></h1>
-
-      <div>
-        {activities.length ? (
+      <h1>These Public Routines Feature the Activity: <span className="highlight">{routineName}</span></h1>
+      <div id="">
+        {activities.length > 0 ? (
           activities.map((activity) => {
             const { id, creatorId, isPublic, name, goal, creatorName, activities } = activity;
             if (isPublic) {
@@ -60,7 +59,7 @@ const UserActivities = ({activityId}) => {
               return null;
             }
           })
-        ) : null}
+        ) : <h2>There are no Routines featuring this Activity</h2>}
       </div>
     </div>
   );
