@@ -51,7 +51,7 @@ const Profile = ({user}) => {
 
       <div>
         <AddRoutine myRoutines={myRoutines} setMyRoutines={setMyRoutines} />
-        <h3>MY ACTIVE ROUTINES:</h3>
+        <h3>MY ROUTINES:</h3>
       {myRoutines && myRoutines.length
         ? myRoutines.map((routine, index) => {
             return (

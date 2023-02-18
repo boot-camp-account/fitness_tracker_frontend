@@ -140,18 +140,19 @@ export const updateActivities = async (activityId, name, description) => {
 };
 
 export const updateActivityDescription = async (activityId, description) => {
+  const token = localStorage.getItem('token')
+  const newDescription = prompt("Please enter a new description for the Activity")
   const response = await fetch(`${BASE_URL}/activities/${activityId}`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
+      "Authorization": `Bearer ${token}`
     },
     body: JSON.stringify({
-      description: description,
+      description: `${newDescription}`,
     }),
   });
   const result = await response.json();
-  prompt("Please enter a new description for the Activity")
-  console.log("hi")
   return result;
 };
 
