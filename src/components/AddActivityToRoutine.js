@@ -67,12 +67,12 @@ const AddActivityToRoutine = ({ routineId, setMyRoutines }) => {
         </select>
         <br/>
         <label>
-          <b>Count: </b>
+          <p>Count: </p>
           <input type="number" value={count} onChange={(e) => setCount(e.target.value)} />
         </label>
         <br/>
         <label>
-          <b>Duration: </b>
+          <p>Duration: </p>
           <input type="number" value={duration} onChange={(e) => setDuration(e.target.value)} />
         </label>
         <br/>
