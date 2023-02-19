@@ -1,3 +1,8 @@
+
+
+
+
+
 import React, { useState, useEffect } from "react";
 import { getUser, getUserRoutine, attachActivity, getUserPublicRoutine } from "../api";
 import { AddRoutine, DeleteRoutine, UpdateRoutine, AddActivityToRoutine } from "./";
@@ -67,8 +72,9 @@ const Profile = ({user, username}) => {
                   routineName={routine.name}
                   routineGoal={routine.goal}
                   setMyRoutines={setMyRoutines}
+                  routineIsPublic={routine.isPublic}
                   />
-                  {/* <DeleteRoutine routineId={routine.id} setMyRoutines={setMyRoutines} /> */}
+                
                   <AddActivityToRoutine
                   routineId={routine.id}
                   myRoutines={myRoutines}
