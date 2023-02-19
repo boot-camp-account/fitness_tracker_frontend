@@ -12,3 +12,4 @@ export {default as UserRoutines} from './UserRoutines'
 export {default as UpdateRoutine} from './UpdateRoutine';
 export {default as UserActivities} from './UserActivities';
 export {default as AddActivityToRoutine} from './AddActivityToRoutine';
+export {default as DeleteActivityFromRoutine} from './DeleteActivityFromRoutine';

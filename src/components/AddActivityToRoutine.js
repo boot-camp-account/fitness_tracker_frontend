@@ -30,7 +30,8 @@ const AddActivityToRoutine = ({ routineId, setMyRoutines }) => {
   const handleAttach = async (e) => {
     e.preventDefault();
     try {
-      const result = await attachActivity(activityId, count, duration, routineId);
+      const result = await attachActivity(activityId, duration, routineId);
+     
       if (count || duration) {
         await updateRoutineActivity(result.id, count, duration);
       }
