@@ -1,6 +1,3 @@
-
-
-
 import React, { useState, useEffect } from "react";
 import { getUser, getUserRoutine, attachActivity, getUserPublicRoutine } from "../api";
 import { AddRoutine, DeleteRoutine, UpdateRoutine, AddActivityToRoutine, DeleteActivityFromRoutine } from "./";
@@ -20,7 +17,6 @@ const Profile = ({user, username}) => {
       console.error(error);
     }
   };  
-
 
   const getMyRoutines = async () => {
     try {

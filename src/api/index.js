@@ -45,20 +45,6 @@ export const getActivityPublicRoutines = async (activityId) => {
   }
 };
 
-// export const getUserRoutine = async (username) => {
-//   const token = localStorage.getItem("token");
-//   try {
-//     const response = await fetch(`${BASE_URL}${username}/routines`, {
-//       method: "GET",
-//       headers: {
-//         "Content-Type": "application/json",
-//         Authorization: `Bearer ${token}`,
-//       },
-//     });
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
 export const getUserRoutine = async (username) => {
   const token = localStorage.getItem("token");
   try {
@@ -75,8 +61,6 @@ export const getUserRoutine = async (username) => {
     console.log(error);
   }
 };
-
-
 
 export const getRoutines = async () => {
   try {

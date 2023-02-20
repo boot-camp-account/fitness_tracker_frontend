@@ -1,15 +1,17 @@
-import React, { useState } from "react";
-import { updateRoutines } from "../api";
 
-const UpdateRoutine = ({ routineId, routineName, routineGoal, routineIsPublic, setMyRoutines }) => {
+import React, { useState } from "react";
+import {updateRoutines} from "../api";
+
+
+const UpdateRoutine = ({ routineId, routineName, routineGoal, setMyRoutines }) => {
   const [name, setName] = useState(routineName);
   const [goal, setGoal] = useState(routineGoal);
-  const [isPublic, setIsPublic] = useState(routineIsPublic);
+  // const [User, setUser] = useState(null);
 
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {
-      const updatedRoutine = await updateRoutines(routineId, name, goal, isPublic);
+      const updatedRoutine = await updateRoutines(routineId, name, goal);
       setMyRoutines((prevRoutines) =>
         prevRoutines.map((routine) =>
           routine.id === routineId
@@ -17,7 +19,6 @@ const UpdateRoutine = ({ routineId, routineName, routineGoal, routineIsPublic, s
                 ...routine,
                 name: updatedRoutine.name,
                 goal: updatedRoutine.goal,
-                isPublic: updatedRoutine.isPublic,
                 activities: updatedRoutine.activities,
               }
             : routine
@@ -29,32 +30,83 @@ const UpdateRoutine = ({ routineId, routineName, routineGoal, routineIsPublic, s
   };
 
   return (
-    <div>
-      <form onSubmit={handleUpdate}>
-        <label>
-          <b>Updated Routine Name: </b>
-          <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
-        </label>
-        <br />
-        <label>
-          <b>Updated Routine Goal: </b>
-          <input type="text" value={goal} onChange={(e) => setGoal(e.target.value)} />
-        </label>
-        <br />
-        <label>
-          <b>Is Public: </b>
-          <input type="checkbox" checked={isPublic} onChange={(e) => setIsPublic(e.target.checked)} />
-        </label>
-        <br />
-        <button type="submit">Update</button>
-        <br/>
-        <br/>
-      </form>
-    </div>
+    <form onSubmit={handleUpdate}>
+      <label>
+        Routine Name:
+        <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+      </label>
+      <br />
+      <label>
+        Goal:
+        <input type="text" value={goal} onChange={(e) => setGoal(e.target.value)} />
+      </label>
+      <br />
+      <button type="submit">Update</button>
+    </form>
   );
 };
 
 export default UpdateRoutine;
+
+//Something in the updated code below caused the UpdateRoutne.js function not to update.  So I went back to the github commit history for our project and used an earlier version of the code.
+
+// import React, { useState } from "react";
+// import { updateRoutines } from "../api";
+
+// const UpdateRoutine = ({ routineId, routineName, routineGoal, routineIsPublic, setMyRoutines }) => {
+//   const [name, setName] = useState(routineName);
+//   const [goal, setGoal] = useState(routineGoal);
+//   const [isPublic, setIsPublic] = useState(routineIsPublic);
+
+//   const handleUpdate = async (e) => {
+//     e.preventDefault();
+//     try {
+//       const updatedRoutine = await updateRoutines(routineId, name, goal, isPublic);
+//       setMyRoutines((prevRoutines) =>
+//         prevRoutines.map((routine) =>
+//           routine.id === routineId
+//             ? {
+//                 ...routine,
+//                 name: updatedRoutine.name,
+//                 goal: updatedRoutine.goal,
+//                 isPublic: updatedRoutine.isPublic,
+//                 activities: updatedRoutine.activities,
+//               }
+//             : routine
+//         )
+//       );
+//     } catch (error) {
+//       console.error(error);
+//     }
+//   };
+
+//   return (
+//     <div>
+//       <form onSubmit={handleUpdate}>
+//         <label>
+//           <b>Updated Routine Name: </b>
+//           <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+//         </label>
+//         <br />
+//         <label>
+//           <b>Updated Routine Goal: </b>
+//           <input type="text" value={goal} onChange={(e) => setGoal(e.target.value)} />
+//         </label>
+//         <br />
+//         <label>
+//           <b>Is Public: </b>
+//           <input type="checkbox" checked={isPublic} onChange={(e) => setIsPublic(e.target.checked)} />
+//         </label>
+//         <br />
+//         <button type="submit">Update</button>
+//         <br/>
+//         <br/>
+//       </form>
+//     </div>
+//   );
+// };
+
+// export default UpdateRoutine;
 
 
 
