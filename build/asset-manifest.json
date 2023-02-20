@@ -1,0 +1,11 @@
+{
+  "files": {
+    "main.js": "/static/js/main.afd3e587.js",
+    "static/media/fitness_app_photo.jpeg": "/static/media/fitness_app_photo.9e8cad0e266903af9fd8.jpeg",
+    "index.html": "/index.html",
+    "main.afd3e587.js.map": "/static/js/main.afd3e587.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.afd3e587.js"
+  ]
+}
