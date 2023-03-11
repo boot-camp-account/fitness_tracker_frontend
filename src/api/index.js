@@ -1,8 +1,8 @@
 const BASE_URL = 'https://fitnesstrac-kr.herokuapp.com/api/';
 
-export const getUser = async () => {
+export const getUser = async (token) => {
   try {
-    const token = localStorage.getItem("token");
+    // const token = localStorage.getItem("token");
     const response = await fetch(`${BASE_URL}users/me`, {
       headers: {
         "Content-Type": "application/json",
@@ -45,8 +45,8 @@ export const getActivityPublicRoutines = async (activityId) => {
   }
 };
 
-export const getUserRoutine = async (username) => {
-  const token = localStorage.getItem("token");
+export const getUserRoutine = async (username, token) => {
+  // const token = localStorage.getItem("token");
   try {
     const response = await fetch(`${BASE_URL}users/${username}/routines`, {
       method: "GET",
@@ -206,8 +206,8 @@ export const deleteRoutine = async (token, routineId) => {
   return result;
 };
 
-export const attachActivity = async (activityId, count, duration, routineId) => {
-  const token = localStorage.getItem("token");
+export const attachActivity = async (activityId, count, duration, routineId, token) => {
+  // const token = localStorage.getItem("token");
   const response = await fetch(`${BASE_URL}routines/${routineId}/activities`, {
     method: "POST",
     headers: {
@@ -224,8 +224,8 @@ export const attachActivity = async (activityId, count, duration, routineId) => 
   return result;
 };
 
-export const updateRoutineActivity = async (routineActivityId, count, duration) => {
-  const token = localStorage.getItem("token");
+export const updateRoutineActivity = async (routineActivityId, count, duration, token) => {
+  // const token = localStorage.getItem("token");
 
   const response = await fetch(
     `${BASE_URL}routine_activities/${routineActivityId}`,

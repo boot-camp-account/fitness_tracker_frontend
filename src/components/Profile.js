@@ -2,14 +2,14 @@ import React, { useState, useEffect } from "react";
 import { getUser, getUserRoutine, attachActivity, getUserPublicRoutine } from "../api";
 import { AddRoutine, DeleteRoutine, UpdateRoutine, AddActivityToRoutine, DeleteActivityFromRoutine } from "./";
 
-const Profile = ({user, username}) => {
+const Profile = ({user, username, token}) => {
   const userID = user.id;
   const [info, setInfo] = useState({});
   const [myRoutines, setMyRoutines] = useState([]);
 
   const getUserInfo = async () => {
     try {
-      const result = await getUser();
+      const result = await getUser(token);
       if (result) {
         setInfo(result);
       }
@@ -21,7 +21,7 @@ const Profile = ({user, username}) => {
   const getMyRoutines = async () => {
     try {
       if (info && info.username) {
-        const result = await getUserPublicRoutine(username);
+        const result = await getUserRoutine(username, token);
         if (result) {
           setMyRoutines(result);
         }
@@ -72,6 +72,7 @@ const Profile = ({user, username}) => {
                     routineId={routine.id}
                     myRoutines={myRoutines}
                     setMyRoutines={setMyRoutines}
+                    token={ token }
                   />
                   
                   {routine.activities && routine.activities.length > 0 && (
@@ -79,7 +80,8 @@ const Profile = ({user, username}) => {
                       <h4>Activities:</h4>
                       <ul className="special-ul">
                       {routine.activities.map((activity) => (
-                     <li key={`activity:${activity.id}`}>
+                     <li key={`activity:${routine.id}:${activity.id}`}>
+                      
                       {activity && (
                      <>
                     <p>Activity:</p> {activity.name}, <p>Count:</p> {activity.count}, <p>Duration:</p> {activity.duration}

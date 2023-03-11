@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { attachActivity, getActivities, updateRoutineActivity } from "../api";
 
-const AddActivityToRoutine = ({ routineId, setMyRoutines }) => {
+const AddActivityToRoutine = ({ routineId, setMyRoutines, token }) => {
   const [activityId, setActivityId] = useState("");
   const [count, setCount] = useState("");
   const [duration, setDuration] = useState("");
   const [allActivities, setAllActivities] = useState([]);
-
+console.log("ID:", routineId)
   useEffect(() => {
     const fetchActivities = async () => {
       try {
@@ -30,10 +30,11 @@ const AddActivityToRoutine = ({ routineId, setMyRoutines }) => {
   const handleAttach = async (e) => {
     e.preventDefault();
     try {
-      const result = await attachActivity(activityId, duration, routineId);
+      console.log(token);
+      const result = await attachActivity(activityId, count, duration, routineId, token);
      
       if (count || duration) {
-        await updateRoutineActivity(result.id, count, duration);
+        await updateRoutineActivity(result.id, count, duration, token);
       }
       setMyRoutines((prevRoutines) =>
         prevRoutines.map((routine) =>
@@ -57,7 +58,8 @@ const AddActivityToRoutine = ({ routineId, setMyRoutines }) => {
     <div>
       <form onSubmit={handleAttach}>
         <h3>Add an Activity to your routine:</h3>
-        <select value={activityId} onChange={(e) => setActivityId(e.target.value)}>
+        <select value={activityId} onChange={(e) => {console.log(e.target.value)
+          setActivityId(e.target.value)}}>
           <option value="">-- Select an activity --</option>
           {allActivities.length > 0 &&
             allActivities.map((activity) => (
